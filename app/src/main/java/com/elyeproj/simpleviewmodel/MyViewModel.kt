@@ -8,7 +8,7 @@ class MyViewModel(
     private val repository: Repository) :
     ViewModel(), LifecycleObserver {
 
-    private val showTextLiveData: MutableLiveData<String> = savedStateHandle.getLiveData(KEY)
+    private val showTextLiveData = savedStateHandle.getLiveData<String>(KEY)
 
     val showTextDataNotifier: LiveData<String>
         get() = showTextLiveData

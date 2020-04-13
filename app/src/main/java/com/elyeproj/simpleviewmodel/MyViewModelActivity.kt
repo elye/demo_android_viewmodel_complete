@@ -10,10 +10,7 @@ import kotlinx.android.synthetic.main.activity_demo.*
 class MyViewModelActivity : AppCompatActivity() {
 
     private val viewModel: MyViewModel by viewModels{
-        val bundle = Bundle().apply {
-            putString(KEY, "From Default")
-        }
-        MyViewModelFactory(this, Repository(), intent.extras)
+        MyViewModelFactory(this, Repository())
     }
 
     private val textDataObserver =
