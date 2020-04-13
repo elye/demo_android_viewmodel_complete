@@ -22,7 +22,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         btn_viewmodel_based.setOnClickListener {
-            val intent = Intent(this, MyActivity::class.java)
+            val intent = Intent(this, MyViewModelActivity::class.java)
             intent.putExtra(KEY, "From Default Vmd")
             startActivity(intent)
         }
