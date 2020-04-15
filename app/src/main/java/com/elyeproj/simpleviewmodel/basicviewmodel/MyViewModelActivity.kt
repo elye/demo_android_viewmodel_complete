@@ -1,16 +1,21 @@
-package com.elyeproj.simpleviewmodel
+package com.elyeproj.simpleviewmodel.basicviewmodel
 
 import android.os.Bundle
+import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
+import com.elyeproj.simpleviewmodel.R
+import com.elyeproj.simpleviewmodel.Repository
 import kotlinx.android.synthetic.main.activity_demo.*
-import org.koin.androidx.viewmodel.ext.android.getStateViewModel
-import org.koin.androidx.viewmodel.ext.android.stateViewModel
 
-class MyViewModelKoinActivity : AppCompatActivity() {
+class MyViewModelActivity : AppCompatActivity() {
 
-    private val viewModel by lazy {
-        getStateViewModel<MyViewModel> (bundle = intent.extras)
+    private val viewModel: MyViewModel by viewModels{
+        MyViewModelFactory(
+            this,
+            Repository(),
+            intent.extras
+        )
     }
 
     private val textDataObserver =

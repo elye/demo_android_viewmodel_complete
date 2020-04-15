@@ -1,15 +1,20 @@
-package com.elyeproj.simpleviewmodel
+package com.elyeproj.simpleviewmodel.daggerandroid
 
 import android.os.Bundle
 import androidx.activity.viewModels
-import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
+import com.elyeproj.simpleviewmodel.R
+import dagger.android.support.DaggerAppCompatActivity
 import kotlinx.android.synthetic.main.activity_demo.*
+import javax.inject.Inject
 
-class MyViewModelActivity : AppCompatActivity() {
+class MyViewModelAndroidDaggerActivity : DaggerAppCompatActivity() {
 
-    private val viewModel: MyViewModel by viewModels{
-        MyViewModelFactory(this, Repository(), intent.extras)
+    @Inject
+    internal lateinit var viewModelFactory: MyViewModelFactory
+
+    private val viewModel: MyViewModel by viewModels {
+        GenericSavedStateViewModelFactory(viewModelFactory, this, intent.extras)
     }
 
     private val textDataObserver =

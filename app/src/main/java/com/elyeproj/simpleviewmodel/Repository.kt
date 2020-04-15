@@ -1,5 +1,7 @@
 package com.elyeproj.simpleviewmodel
 
-class Repository {
+import javax.inject.Inject
+
+class Repository @Inject constructor() {
     fun getMessage() = "From Repository"
 }

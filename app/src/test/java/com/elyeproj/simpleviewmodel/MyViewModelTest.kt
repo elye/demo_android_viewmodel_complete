@@ -4,6 +4,7 @@ import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.SavedStateHandle
 import com.elyeproj.simpleviewmodel.MainActivity.Companion.KEY
+import com.elyeproj.simpleviewmodel.basicviewmodel.MyViewModel
 import io.mockk.every
 import io.mockk.mockk
 import io.mockk.verify
@@ -25,7 +26,10 @@ class MyViewModelTest {
         every { liveData.value } returns "Default Value"
         every { savedStateHandle.getLiveData<String>(KEY) } returns liveData
 
-        val viewModel = MyViewModel(savedStateHandle, repository)
+        val viewModel = MyViewModel(
+            savedStateHandle,
+            repository
+        )
         verify { savedStateHandle.getLiveData<String>(KEY) }
         Assert.assertEquals(viewModel.showTextDataNotifier.value, "Default Value")
     }
@@ -37,7 +41,10 @@ class MyViewModelTest {
         every { repository.getMessage() } returns "Repository Value"
         every { savedStateHandle.getLiveData<String>(any()) } returns MutableLiveData()
 
-        val viewModel = MyViewModel(savedStateHandle, repository)
+        val viewModel = MyViewModel(
+            savedStateHandle,
+            repository
+        )
         viewModel.fetchValue()
 
         verify { repository.getMessage() }
@@ -51,7 +58,10 @@ class MyViewModelTest {
         every { savedStateHandle.set(KEY, "From onPaused") } returns Unit
         every { savedStateHandle.getLiveData<String>(KEY) } returns MutableLiveData()
 
-        val viewModel = MyViewModel(savedStateHandle, repository)
+        val viewModel = MyViewModel(
+            savedStateHandle,
+            repository
+        )
         viewModel.onPause()
 
         verify(exactly = 0) { repository.getMessage() }

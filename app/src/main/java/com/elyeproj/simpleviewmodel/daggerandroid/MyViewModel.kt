@@ -1,11 +1,13 @@
-package com.elyeproj.simpleviewmodel
+package com.elyeproj.simpleviewmodel.daggerandroid
 
 import androidx.lifecycle.*
 import com.elyeproj.simpleviewmodel.MainActivity.Companion.KEY
+import com.elyeproj.simpleviewmodel.Repository
 
 class MyViewModel(
     private val savedStateHandle: SavedStateHandle,
-    private val repository: Repository) :
+    private val repository: Repository
+) :
     ViewModel(), LifecycleObserver {
 
     private val showTextLiveData = savedStateHandle.getLiveData<String>(KEY)

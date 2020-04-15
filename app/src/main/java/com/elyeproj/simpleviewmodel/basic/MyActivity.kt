@@ -1,10 +1,10 @@
-package com.elyeproj.simpleviewmodel
+package com.elyeproj.simpleviewmodel.basic
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import androidx.activity.viewModels
-import androidx.lifecycle.Observer
 import com.elyeproj.simpleviewmodel.MainActivity.Companion.KEY
+import com.elyeproj.simpleviewmodel.R
+import com.elyeproj.simpleviewmodel.Repository
 import kotlinx.android.synthetic.main.activity_demo.*
 
 class MyActivity : AppCompatActivity() {

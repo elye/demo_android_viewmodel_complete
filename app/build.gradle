@@ -1,6 +1,7 @@
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
 
 android {
     compileSdkVersion 29
@@ -45,6 +46,11 @@ dependencies {
     implementation "org.koin:koin-androidx-scope:2.1.5"
     implementation "org.koin:koin-androidx-viewmodel:2.1.5"
     implementation "org.koin:koin-androidx-fragment:2.1.5"
+
+    implementation  "com.google.dagger:dagger:2.26"
+    implementation "com.google.dagger:dagger-android-support:2.26"
+    kapt "com.google.dagger:dagger-compiler:2.26"
+    kapt "com.google.dagger:dagger-android-processor:2.26"
 
     testImplementation 'junit:junit:4.13'
     testImplementation "io.mockk:mockk:1.9.3"
