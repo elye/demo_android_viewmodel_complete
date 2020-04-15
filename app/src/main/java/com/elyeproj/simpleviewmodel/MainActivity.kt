@@ -27,5 +27,10 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
+        btn_viewmodel_koin_based.setOnClickListener {
+            val intent = Intent(this, MyViewModelKoinActivity::class.java)
+            intent.putExtra(KEY, "From Vmd Koin")
+            startActivity(intent)
+        }
     }
 }

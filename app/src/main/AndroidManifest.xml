@@ -17,6 +17,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".MyViewModelKoinActivity"
+            android:label="ViewModel Koin Based"/>
         <activity android:name=".MyViewModelActivity"
             android:label="ViewModel Based"/>
         <activity android:name=".MyActivity"
