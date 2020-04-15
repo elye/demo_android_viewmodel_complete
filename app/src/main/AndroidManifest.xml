@@ -17,6 +17,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".manuallocator.MyViewModelLocatorActivity"
+            android:label="ViewModel Manual Locator Based"/>
         <activity android:name=".daggerbasic.MyViewModelDaggerActivity"
             android:label="ViewModel Android Dagger Based"/>
         <activity android:name=".koin.MyViewModelKoinActivity"

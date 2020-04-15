@@ -8,6 +8,7 @@ import com.elyeproj.simpleviewmodel.basicviewmodel.MyViewModelActivity
 import com.elyeproj.simpleviewmodel.daggerandroid.MyViewModelAndroidDaggerActivity
 import com.elyeproj.simpleviewmodel.daggerbasic.MyViewModelDaggerActivity
 import com.elyeproj.simpleviewmodel.koin.MyViewModelKoinActivity
+import com.elyeproj.simpleviewmodel.manuallocator.MyViewModelLocatorActivity
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
@@ -47,6 +48,12 @@ class MainActivity : AppCompatActivity() {
         btn_viewmodel_koin_based.setOnClickListener {
             val intent = Intent(this, MyViewModelKoinActivity::class.java)
             intent.putExtra(KEY, "From Vmd Koin")
+            startActivity(intent)
+        }
+
+        btn_viewmodel_locator_based.setOnClickListener {
+            val intent = Intent(this, MyViewModelLocatorActivity::class.java)
+            intent.putExtra(KEY, "From Vmd Manual")
             startActivity(intent)
         }
     }
