@@ -5,12 +5,13 @@ import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import kotlinx.android.synthetic.main.activity_demo.*
+import org.koin.android.ext.android.get
+import org.koin.android.ext.android.inject
+import org.koin.androidx.viewmodel.ext.android.stateViewModel
 
 class MyViewModelActivity : AppCompatActivity() {
 
-    private val viewModel: MyViewModel by viewModels{
-        MyViewModelFactory(this, Repository(), intent.extras)
-    }
+    private val viewModel: MyViewModel by stateViewModel()
 
     private val textDataObserver =
         Observer<String> { data -> text_view.text = data }
