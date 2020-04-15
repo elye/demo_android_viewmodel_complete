@@ -36,6 +36,17 @@
         android:text="ViewModel Android Dagger Based"
         app:layout_constraintTop_toBottomOf="@id/btn_viewmodel_based"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/btn_viewmodel_dagger_based"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_viewmodel_dagger_based"
+        android:layout_width="@dimen/button_width"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/button_textsize"
+        android:text="ViewModel Dagger Based"
+        app:layout_constraintTop_toBottomOf="@id/btn_viewmodel_android_dagger_based"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintBottom_toTopOf="@id/btn_viewmodel_koin_based"
         app:layout_constraintEnd_toEndOf="parent" />
 
@@ -45,7 +56,7 @@
         android:layout_height="wrap_content"
         android:textSize="@dimen/button_textsize"
         android:text="ViewModel Koin Based"
-        app:layout_constraintTop_toBottomOf="@id/btn_viewmodel_android_dagger_based"
+        app:layout_constraintTop_toBottomOf="@id/btn_viewmodel_dagger_based"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />

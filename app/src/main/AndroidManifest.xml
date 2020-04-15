@@ -17,10 +17,12 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".daggerbasic.MyViewModelDaggerActivity"
+            android:label="ViewModel Android Dagger Based"/>
         <activity android:name=".koin.MyViewModelKoinActivity"
             android:label="ViewModel Koin Based"/>
         <activity android:name=".daggerandroid.MyViewModelAndroidDaggerActivity"
-            android:label="ViewModel Android Dagger Based"/>
+            android:label="ViewModel Dagger Based"/>
         <activity android:name=".basicviewmodel.MyViewModelActivity"
             android:label="ViewModel Based"/>
         <activity android:name=".basic.MyActivity"

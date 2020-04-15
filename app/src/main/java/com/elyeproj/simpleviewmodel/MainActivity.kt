@@ -6,6 +6,7 @@ import android.os.Bundle
 import com.elyeproj.simpleviewmodel.basic.MyActivity
 import com.elyeproj.simpleviewmodel.basicviewmodel.MyViewModelActivity
 import com.elyeproj.simpleviewmodel.daggerandroid.MyViewModelAndroidDaggerActivity
+import com.elyeproj.simpleviewmodel.daggerbasic.MyViewModelDaggerActivity
 import com.elyeproj.simpleviewmodel.koin.MyViewModelKoinActivity
 import kotlinx.android.synthetic.main.activity_main.*
 
@@ -34,6 +35,12 @@ class MainActivity : AppCompatActivity() {
         btn_viewmodel_android_dagger_based.setOnClickListener {
             val intent = Intent(this, MyViewModelAndroidDaggerActivity::class.java)
             intent.putExtra(KEY, "From Vmd AndDag")
+            startActivity(intent)
+        }
+
+        btn_viewmodel_dagger_based.setOnClickListener {
+            val intent = Intent(this, MyViewModelDaggerActivity::class.java)
+            intent.putExtra(KEY, "From Vmd Dagger")
             startActivity(intent)
         }
 
