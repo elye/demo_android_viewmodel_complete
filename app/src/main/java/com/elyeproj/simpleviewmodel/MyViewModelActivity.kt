@@ -4,13 +4,12 @@ import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
-import com.elyeproj.simpleviewmodel.MainActivity.Companion.KEY
 import kotlinx.android.synthetic.main.activity_demo.*
 
 class MyViewModelActivity : AppCompatActivity() {
 
     private val viewModel: MyViewModel by viewModels{
-        MyViewModelFactory(this, Repository(), intent.getBundleExtra(KEY))
+        MyViewModelFactory(this, Repository(), intent.extras)
     }
 
     private val textDataObserver =

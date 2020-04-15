@@ -4,11 +4,14 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import kotlinx.android.synthetic.main.activity_demo.*
+import org.koin.androidx.viewmodel.ext.android.getStateViewModel
 import org.koin.androidx.viewmodel.ext.android.stateViewModel
 
 class MyViewModelKoinActivity : AppCompatActivity() {
 
-    private val viewModel: MyViewModel by stateViewModel()
+    private val viewModel by lazy {
+        getStateViewModel<MyViewModel> (bundle = intent.extras)
+    }
 
     private val textDataObserver =
         Observer<String> { data -> text_view.text = data }
