@@ -4,11 +4,12 @@ import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.lifecycle.Observer
 import com.elyeproj.simpleviewmodel.R
+import com.elyeproj.simpleviewmodel.databinding.ActivityDemoBinding
 import dagger.android.support.DaggerAppCompatActivity
-import kotlinx.android.synthetic.main.activity_demo.*
 import javax.inject.Inject
 
 class MyViewModelAndroidDaggerActivity : DaggerAppCompatActivity() {
+    private lateinit var binding: ActivityDemoBinding
 
     @Inject
     internal lateinit var viewModelFactory: MyViewModelFactory
@@ -18,13 +19,17 @@ class MyViewModelAndroidDaggerActivity : DaggerAppCompatActivity() {
     }
 
     private val textDataObserver =
-        Observer<String> { data -> text_view.text = data }
+        Observer<String> { data -> binding.textView.text = data }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_demo)
+
+        binding = ActivityDemoBinding.inflate(layoutInflater)
+        val view = binding.root
+
+        setContentView(view)
         lifecycle.addObserver(viewModel)
         viewModel.showTextDataNotifier.observe(this, textDataObserver)
-        btn_fetch.setOnClickListener { viewModel.fetchValue() }
+        binding.btnFetch.setOnClickListener { viewModel.fetchValue() }
     }
 }
