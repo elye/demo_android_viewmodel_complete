@@ -7,20 +7,26 @@ import androidx.lifecycle.Observer
 import com.elyeproj.simpleviewmodel.MainApplication
 import com.elyeproj.simpleviewmodel.R
 import com.elyeproj.simpleviewmodel.Repository
-import kotlinx.android.synthetic.main.activity_demo.*
+import com.elyeproj.simpleviewmodel.databinding.ActivityDemoBinding
 
 class MyViewModelLocatorActivity : AppCompatActivity() {
+    private lateinit var binding: ActivityDemoBinding
 
     private val viewModel: MyViewModel by viewModels()
 
     private val textDataObserver =
-        Observer<String> { data -> text_view.text = data }
+        Observer<String> { data -> binding.textView.text = data }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_demo)
+
+        binding = ActivityDemoBinding.inflate(layoutInflater)
+        val view = binding.root
+
+        setContentView(view)
+
         lifecycle.addObserver(viewModel)
         viewModel.showTextDataNotifier.observe(this, textDataObserver)
-        btn_fetch.setOnClickListener { viewModel.fetchValue() }
+        binding.btnFetch.setOnClickListener { viewModel.fetchValue() }
     }
 }
